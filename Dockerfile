@@ -1,4 +1,5 @@
 FROM ubuntu:latest
 MAINTAINER Sad Pencil "me@pencil.live"
-RUN apt-get update && apt-get install -y texlive-full && apt-get clean && sudo apt-get autoclean
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y texlive-full && apt-get autoclean && apt-get clean && rm -rf /var/cache/apt/*
 CMD ["/bin/bash"]
